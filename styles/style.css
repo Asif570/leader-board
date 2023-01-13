@@ -10,6 +10,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   background-color: #e5e5e5;
+  position: relative;
 }
 * {
   margin: 0;
@@ -65,6 +66,13 @@ nav {
   align-items: center;
   gap: 15px;
 }
+.close,
+.menu-bar {
+  width: 30px;
+  cursor: pointer;
+  display: none;
+}
+
 .links ul li a {
   text-decoration: none;
   color: #ffffff;
@@ -221,5 +229,62 @@ nav {
 @media screen and (max-width: 768px) {
   .top-blogs-container {
     grid-template-columns: repeat(1, 1fr);
+  }
+}
+/* responsive for extra small devices  */
+@media screen and (max-width: 576px) {
+  nav {
+    align-items: center;
+  }
+  .top-players-containers {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .links ul {
+    position: fixed;
+    top: 0;
+    left: 110%;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--header-bg);
+    overflow-y: hidden;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: all 0.5s ease-in;
+  }
+  .links ul.active {
+    left: 0;
+  }
+  .links ul li {
+    padding: 30px 0;
+    border-bottom: 1px solid #f2f2f2;
+    width: 100%;
+    text-align: center;
+  }
+  .close {
+    display: block;
+    margin-left: 20px;
+  }
+  .menu-bar {
+    display: block;
+  }
+  .menu-bar.active {
+    display: none;
+  }
+  .top-blog {
+    flex-direction: column;
+    align-items: center;
+  }
+  .top-blog h3 {
+    line-height: 20px;
+  }
+  .text-box {
+    width: 100%;
+  }
+  .course-info {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .rating {
+    width: 100%;
   }
 }
